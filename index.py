@@ -56,7 +56,6 @@ def get_eng_letters(dt):
 
 
 def main():
-    # initial data, paths to files
     small_data = 'small_data_persons.json'
     big_data = 'big_data_persons.json'
     result_data = 'main_data.xlsx'
@@ -67,12 +66,9 @@ def main():
     division_name_surname(small_dataset)
     division_name_surname(big_dataset)
 
-    # small_data sorting by Surname
     small_dataset.sort(key=lambda k: k['Surname'])
-    # big_data sorting by Name
     big_dataset.sort(key=lambda k: k['Name'])
 
-    # writing the data to Excel file
     with pd.ExcelWriter(result_data) as writer:
         data = {
             "small_data": small_dataset,
